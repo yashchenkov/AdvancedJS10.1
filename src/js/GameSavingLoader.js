@@ -7,7 +7,7 @@ export default class GameSavingLoader {
 static load() {
   return read()
     .then(() => {
-      json();
+      return json();
     })
     .then((savingObj) => {
     	return new GameSaving(savingObj.id, savingObj.created, savingObj.userInfo);
