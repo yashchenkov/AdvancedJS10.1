@@ -6,10 +6,11 @@ export default class GameSavingLoader {
 
 static load() {
   return read()
-    .then(() => {
-      return json();
+    .then((data) => {
+      return json(data);
     })
-    .then((savingObj) => {
+    .then((str) => {
+      const savingObj = JSON.parse(str);
     	return new GameSaving(savingObj.id, savingObj.created, savingObj.userInfo);
     });
   }
